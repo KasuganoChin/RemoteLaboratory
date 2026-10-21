@@ -23,3 +23,5 @@ jobs:
             gh release edit installer-v0.1.1 --repo $env:GITHUB_REPOSITORY --draft
             if($LASTEXITCODE -ne 0){throw 'Cannot withdraw installer-only preview'}
           }
+
+# Distribution policy: publish playable game packages only.
