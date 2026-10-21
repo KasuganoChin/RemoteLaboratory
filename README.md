@@ -28,6 +28,12 @@ Local guest play is available offline. Online account features require access to
 
 ## Updates
 
+### Early Tester registration reward
+
+Accounts registered before **November 8, 2026, 00:00 Beijing time (UTC+8)** automatically and permanently receive **Early Tester**. This includes registrations throughout November 7 and eligible existing accounts. Select it from your owned badges; your currently equipped badge is preserved. This cloud-side update does not require a new game download.
+
+Local players already receive Remote Admin access independently of their badge. Using tracked gameplay-altering admin actions excludes that round from experience scoring; merely owning admin access does not.
+
 Close the game and local server, then run **Start-RemoteLaboratory.cmd** to check for updates, update, repair managed distribution files or roll back. User settings and account caches are preserved. Keep the bootstrap files together. The default installation is the **RemoteLaboratory** subfolder beside the installer.
 
 The first full game distribution is **0.1.0**; its CLI bootstrap is **0.2.0**. The in-game legacy build label is separate from the distribution version.
