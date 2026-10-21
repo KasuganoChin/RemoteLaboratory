@@ -1,28 +1,48 @@
 # RemoteLaboratory
 
-An unofficial SCP: Secret Laboratory 11.2.1 AI and PvE game modification.
+An unofficial SCP: Secret Laboratory 11.2.1 modification with Normal Escape, Office Survival, AI opponents, accounts and experience progression.
 
 **Creator:** KasuganoChin  
 **AI development collaboration:** Codex (OpenAI)
 
-## Distribution
+## Download and play
 
-This public repository is reserved for reviewed, playable RemoteLaboratory releases. A game content package must work with the separately downloaded, matching client and dedicated server depots. It must include the project-authored runtime, enemy AI, Normal Escape and Office Survival modes, menus, account integration and required local installation patches.
+Download **RemoteLaboratory-0.1.0-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
 
-**The complete game distribution is currently being prepared. No playable release is available yet.** An installer framework alone is not a game release.
+1. Obtain the pinned **11.2.1 Client and Server** using the separately provided DepotDownloader commands. Current Steam installations are not interchangeable with these depots.
+2. Extract the complete RemoteLaboratory ZIP to a writable folder on Windows 10/11 x64.
+3. Double-click **Install-And-Play.cmd**. If prompted, enter the folder containing **Client** and **Server**, or the parent of **Downloads**.
+4. Wait while the originals are copied, patches are applied and AI navigation is prepared. The game opens automatically. Use the same entry point next time.
 
-## Installation requirements
+If you have not obtained the base game, leave the folder prompt blank to use the included download helper. DepotDownloader is a separate official tool and handles Steam authentication. A GitHub account and development tools are not required to install the modification.
 
-- Windows and the exact supported SCP: Secret Laboratory 11.2.1 client and server depots, obtained separately using DepotDownloader.
-- A reviewed RemoteLaboratory game release, once available.
-- No development workspace, SDK, private repository access or maintainer credentials should be needed by players.
+## Included
 
-The installer is a supporting tool. Its development source and regression tests are maintained separately from this public game distribution.
+- Normal Escape and Office Survival, reviewed difficulty settings and AI behavior.
+- Portal, activity configuration, account and experience-shop menus.
+- Registration, login, badges, experience progression and cloud settlement.
+- A local server/client launcher, verified patches and a self-contained account runtime.
+- Independently versioned client, server and runtime update components.
 
-## Release requirements
+Local guest play is available offline. Online account features require access to the account service. This is a local single-player-with-AI distribution, not a public multiplayer hosting package.
 
-Each release must install and launch on a clean base-game installation, provide independently updateable client/server/runtime packages, preserve player settings and support rollback. Release notes must identify the required base version and verified installation procedure.
+## Updates
 
-Original game binaries and SCP-173/SCP-1507 model resources are not bundled. Optional model integration points must tolerate missing user-provided resources.
+Close the game and local server, then run **Start-RemoteLaboratory.cmd** to check for updates, update, repair managed distribution files or roll back. User settings and account caches are preserved. Keep the bootstrap files together. The default installation is the **RemoteLaboratory** subfolder beside the installer.
 
-Public packages must exclude privileged account-service credentials, personal account caches, player records, development logs and test fixtures.
+The first full game distribution is **0.1.0**; its CLI bootstrap is **0.2.0**. The in-game legacy build label is separate from the distribution version.
+
+## Base game and models
+
+Original game executables and complete original DLL/resource files are not included. Patches apply locally to verified Steam depot inputs:
+
+| Component | App | Depot | Manifest |
+| --- | --- | --- | --- |
+| Client | 700330 | 700331 | 193310193313059048 |
+| Server | 996560 | 996561 | 9041139426033264575 |
+
+Imported SCP-173 and SCP-1507 models, animation, textures and audio are excluded. SCP-173 uses the base game's original appearance; role 21 uses the original Tutorial appearance as a placeholder. Optional model importing is not included in this release.
+
+The archive includes credits and runtime license notices. This project is not affiliated with or endorsed by Northwood Studios.
+
+This repository contains reviewed public distribution information and release attachments. Installer and development source are maintained separately.
