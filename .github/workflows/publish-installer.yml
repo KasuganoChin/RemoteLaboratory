@@ -1,40 +1,25 @@
-name: Publish reviewed installer
+name: Withdraw installer-only preview
 on:
-  workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.release/installer-v0.1.1.json', '.github/workflows/publish-installer.yml']
+    paths: ['.github/workflows/publish-installer.yml']
+  workflow_dispatch:
 permissions:
   contents: write
-concurrency:
-  group: publish-reviewed-installer
-  cancel-in-progress: false
 jobs:
-  publish:
+  withdraw:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Verify and publish approved bootstrap
+      - name: Keep installer preview out of public game releases
         shell: powershell
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           $ErrorActionPreference='Stop'
-          $record=Get-Content .release/installer-v0.1.1.json -Raw | ConvertFrom-Json
-          if($record.tag -ne 'installer-v0.1.1'){throw 'Unexpected release tag'}
-          New-Item artifacts -ItemType Directory -Force | Out-Null
-          foreach($asset in $record.assets){
-            if($asset.name -notin @('RemoteLaboratory-Installer-0.1.1.zip','RemoteLaboratory-Installer-0.1.1.zip.sha256')){throw 'Unexpected asset'}
-            $path=Join-Path artifacts $asset.name
-            $bytes=[Convert]::FromBase64String($asset.base64)
-            if($bytes.Length -ne $asset.size){throw 'Asset length mismatch'}
-            [IO.File]::WriteAllBytes([IO.Path]::GetFullPath($path),$bytes)
-            if((Get-FileHash $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $asset.sha256){throw 'Asset hash mismatch'}
+          $releases=gh release list --repo $env:GITHUB_REPOSITORY --limit 100 --json tagName,isDraft
+          if($LASTEXITCODE -ne 0){throw 'Cannot inspect releases'}
+          $preview=@($releases | ConvertFrom-Json | Where-Object {$_.tagName -eq 'installer-v0.1.1' -and !$_.isDraft})
+          if($preview.Count -gt 0){
+            gh release edit installer-v0.1.1 --repo $env:GITHUB_REPOSITORY --draft
+            if($LASTEXITCODE -ne 0){throw 'Cannot withdraw installer-only preview'}
           }
-          if($record.assets.Count -ne 2){throw 'Missing approved assets'}
-          $existing=gh release list --repo $env:GITHUB_REPOSITORY --limit 100 --json tagName
-          if($LASTEXITCODE -ne 0){throw 'Cannot list releases'}
-          if(@($existing | ConvertFrom-Json | Where-Object {$_.tagName -eq $record.tag}).Count -gt 0){Write-Host 'Immutable release already exists';exit 0}
-          $assets=@(Get-ChildItem artifacts -File | ForEach-Object {$_.FullName})
-          gh release create $record.tag --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title 'CLI Installer 0.1.1 Preview' --notes 'Reviewed CLI installer framework only; not a complete playable game package. Extract all files and run Start-RemoteLaboratory.cmd on Windows. Public downloads require no GitHub token. No game binaries, model resources, server secrets or player data. Creator: KasuganoChin. AI development collaboration: Codex (OpenAI).' @assets
-          if($LASTEXITCODE -ne 0){throw 'Release publication failed'}
