@@ -7,7 +7,7 @@ An unofficial SCP: Secret Laboratory 11.2.1 modification with Normal Escape, Off
 
 ## Download and play
 
-Download **RemoteLaboratory-0.1.0-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
+Download **RemoteLaboratory-0.1.1-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
 
 1. Obtain the pinned **11.2.1 Client and Server** using the separately provided DepotDownloader commands. Current Steam installations are not interchangeable with these depots.
 2. Extract the complete RemoteLaboratory ZIP to a writable folder on Windows 10/11 x64.
@@ -41,7 +41,7 @@ Original game executables and complete original DLL/resource files are not inclu
 | Client | 700330 | 700331 | 193310193313059048 |
 | Server | 996560 | 996561 | 9041139426033264575 |
 
-Imported SCP-173 and SCP-1507 models, animation, textures and audio are excluded. SCP-173 uses the base game's original appearance; role 21 uses the original Tutorial appearance as a placeholder. Optional model importing is not included in this release.
+Imported SCP-173 and SCP-1507 models, animation, textures and audio are excluded. SCP-173 uses the base game's original appearance; SCP-1507 is disabled until its model is available. The maximum selectable SCP roster is seven. Optional model importing is not included in this release.
 
 The archive includes credits and runtime license notices. This project is not affiliated with or endorsed by Northwood Studios.
 
