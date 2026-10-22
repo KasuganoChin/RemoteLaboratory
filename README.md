@@ -7,7 +7,7 @@ An unofficial SCP: Secret Laboratory 11.2.1 modification with Normal Escape, Off
 
 ## Download and play
 
-Download **RemoteLaboratory-0.1.1-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
+Download **RemoteLaboratory-0.1.2-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
 
 1. Obtain the pinned **11.2.1 Client and Server** using the separately provided DepotDownloader commands. Current Steam installations are not interchangeable with these depots.
 2. Extract the complete RemoteLaboratory ZIP to a writable folder on Windows 10/11 x64.
@@ -20,6 +20,8 @@ If you have not obtained the base game, leave the folder prompt blank to use the
 
 - Normal Escape and Office Survival, reviewed difficulty settings and AI behavior.
 - Portal, activity configuration, account and experience-shop menus.
+- Online News with unread indicators, read history, offline caching and confirmed badge notifications.
+- Automatic Gunfighter unlock after accepted Hard Office Survival results with at least 15 completed waves.
 - Registration, login, badges, experience progression and cloud settlement.
 - A local server/client launcher, verified patches and a self-contained account runtime.
 - Independently versioned client, server and runtime update components.
