@@ -3,7 +3,8 @@
 An unofficial SCP: Secret Laboratory 11.2.1 modification with Normal Escape, Office Survival, AI opponents, accounts and experience progression.
 
 **Creator:** KasuganoChin  
-**AI development collaboration:** Codex (OpenAI)
+**AI development collaboration:** [Codex](https://github.com/codex) (OpenAI)  
+[Contributors](CONTRIBUTORS.md)
 
 ## Download and play
 
