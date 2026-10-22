@@ -8,11 +8,11 @@ An unofficial SCP: Secret Laboratory 11.2.1 modification with Normal Escape, Off
 
 ## Download and play
 
-Download **RemoteLaboratory-0.1.3-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
+Download **RemoteLaboratory-0.1.4-Windows-x64.zip** from [the latest release](https://github.com/KasuganoChin/RemoteLaboratory/releases/latest). This complete modification package includes client modifications, server AI, the account runtime and installer.
 
 1. Obtain the pinned **11.2.1 Client and Server** using the separately provided DepotDownloader commands. Current Steam installations are not interchangeable with these depots.
 2. Extract the complete RemoteLaboratory ZIP to a writable folder on Windows 10/11 x64.
-3. Double-click **Install-And-Play.cmd**. If prompted, enter the folder containing **Client** and **Server**, or the parent of **Downloads**.
+3. Double-click **Install-And-Play.cmd**. If prompted, enter the folder containing **Client** and **Server**, the parent of **Downloads**, or an existing RemoteLaboratory game folder. Enter **S** to select separate client and server folders. Keep the original folders in place.
 4. Wait while the originals are copied, patches are applied and AI navigation is prepared. The game opens automatically. Use the same entry point next time.
 
 If you have not obtained the base game, leave the folder prompt blank to use the included download helper. DepotDownloader is a separate official tool and handles Steam authentication. A GitHub account and development tools are not required to install the modification.
@@ -32,15 +32,24 @@ Local guest play is available offline. Online account features require access to
 
 ## Updates
 
+### 0.1.4 fixes
+
+- News preserves real line breaks and typed `\n` sequences, including cached announcements.
+- SCP movement recovers from elevated floor edges, and SCP-106 can plan routes through ordinary closed doors that its native movement can cross. Human door permissions remain unchanged.
+- Base-game import recognizes existing installation layouts and separate client/server folders. Startup diagnostics identify the client or local server that is still running.
+- Reused components retain their original published archives for compatible upgrades.
+
+Radar and the local Last Signal prototype are not enabled in this release. Navigation fixes passed targeted Hard/Nightmare and physical-motion tests; this does not guarantee every map seed or encounter.
+
 ### Early Tester registration reward
 
 Accounts registered before **November 8, 2026, 00:00 Beijing time (UTC+8)** automatically and permanently receive **Early Tester**. This includes registrations throughout November 7 and eligible existing accounts. Select it from your owned badges; your currently equipped badge is preserved. This cloud-side update does not require a new game download.
 
 Local players already receive Remote Admin access independently of their badge. Using tracked gameplay-altering admin actions excludes that round from experience scoring; merely owning admin access does not.
 
-To upgrade from **0.1.2 or earlier**, close the game and local server, download the complete 0.1.3 ZIP and extract it into the same folder as your existing **Install-And-Play.cmd**, replacing the launcher files and keeping the **RemoteLaboratory** game subfolder. Run **Install-And-Play.cmd** to update before launching. Custom install paths can be supplied with **Install-And-Play.ps1 -InstallDirectory**. Settings and account caches are preserved; no new base-game download is needed.
+To upgrade directly from **0.1.1, 0.1.2 or 0.1.3**, close the game and local server, download the complete 0.1.4 ZIP and extract it into the same folder as your existing **Install-And-Play.cmd**, replacing the launcher files and keeping the **RemoteLaboratory** game subfolder. Run **Install-And-Play.cmd** to update before launching. Custom install paths can be supplied with **Install-And-Play.ps1 -InstallDirectory**. Settings and account caches are preserved; no intermediate version or new base-game download is needed.
 
-Version 0.1.3 distributes one complete ZIP instead of separate component attachments. The older updater requires this first manual bundle upgrade. The included newer **Start-RemoteLaboratory.cmd** supports future complete-bundle updates, repair and rollback. Keep all bootstrap files together.
+Since version 0.1.3, releases distribute one complete ZIP instead of separate component attachments. Updaters from 0.1.2 or earlier require a manual complete-bundle upgrade. The included newer **Start-RemoteLaboratory.cmd** supports complete-bundle updates, repair and rollback. Keep all bootstrap files together.
 
 The first full game distribution is **0.1.0**; its CLI bootstrap is **0.2.0**. The in-game legacy build label is separate from the distribution version.
 
